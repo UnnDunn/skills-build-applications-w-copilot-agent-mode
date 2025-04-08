@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 
 function Teams() {
   const [teams, setTeams] = useState([]);
@@ -11,13 +12,22 @@ function Teams() {
   }, []);
 
   return (
-    <div>
-      <h1>Teams</h1>
-      <ul>
-        {teams.map(team => (
-          <li key={team._id}>{team.name}</li>
-        ))}
-      </ul>
+    <div className="container mt-4">
+      <h1 className="text-center">Teams</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Team Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {teams.map(team => (
+            <tr key={team._id}>
+              <td>{team.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 }

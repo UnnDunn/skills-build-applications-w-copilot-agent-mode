@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 
 function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([]);
@@ -11,9 +12,9 @@ function Leaderboard() {
   }, []);
 
   return (
-    <div>
-      <h1>Leaderboard</h1>
-      <table>
+    <div className="container mt-4">
+      <h1 className="text-center">Leaderboard</h1>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Username</th>
@@ -28,7 +29,7 @@ function Leaderboard() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 }
